@@ -19,7 +19,7 @@ var work = {
 			description : "Managed over 300 accounts"
 		},
 		{
-			employer : "Self",
+			employer : "Self employed",
 			title : "Professional Poker Player",
 			location : "NJ",
 			dates : "2013-2016",
@@ -67,9 +67,13 @@ var education = {
 	onlineCourses : {
 					title : "Front End Web Dev Nanodegree",
 					school : "Udacity",
-					dates : "2017"
+					dates : "2017",
+					url : "www.udacity.com"
 					}
 }
+
+var formattedHTMLheaderName = HTMLheaderName.replace("%data%", bio.name);
+$("#header").append(formattedHTMLheaderName);
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -81,7 +85,18 @@ if (bio.skills.length > 0) {
 	}
 };
 
-var formattedHTMLheaderName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").append(formattedHTMLheaderName);
+
+
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+	$(".work-entry:last").append(formattedEmployerTitle).append(formattedDates).append(formattedDescription);
+};
 
 //github push testss
