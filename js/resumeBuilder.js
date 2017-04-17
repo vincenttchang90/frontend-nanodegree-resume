@@ -72,6 +72,8 @@ var education = {
 					}
 }
 
+function displayWork() {
+
 var formattedHTMLheaderName = HTMLheaderName.replace("%data%", bio.name);
 $("#header").append(formattedHTMLheaderName);
 
@@ -98,6 +100,14 @@ for (job in work.jobs) {
 
 	$(".work-entry:last").append(formattedEmployerTitle).append(formattedDates).append(formattedDescription);
 };
+};
 
+displayWork();
+
+$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks(x,y);
+});
 //github push testsss
 //work test
