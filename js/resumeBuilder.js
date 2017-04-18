@@ -34,7 +34,13 @@ var projects = {
 				title : "Will update",
 				dates : "Will update",
 				description : "Will update,",
-				images : "Will update"
+				images : "images/me.png"
+			},
+			{
+				title : "Will update",
+				dates : "Will update",
+				description : "Will update,",
+				images : "images/me.png"
 			}]
 };
 
@@ -109,5 +115,28 @@ $(document).click(function(loc) {
   var y = loc.pageY;
   logClicks(x,y);
 });
-//github push testsss
-//work test
+
+$("#main").append(internationalizeButton);
+
+function inName() {
+	var name = bio.name.split(" ");
+	var first = name[0].toLowerCase();
+	var last = name[1].toUpperCase();
+	return first[0].toUpperCase()+first.slice(1)+" "+last;
+}
+
+projects.display = function() {
+	for (stuff in projects.project) {
+		$("#projects").append(HTMLprojectStart);
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[stuff].title);
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.project[stuff].dates);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[stuff].description);
+		$(".project-entry:last").append(formattedTitle).append(formattedDates).append(formattedDescription);
+		if (projects.project[stuff].images.length > 0) {
+			var formattedImages = HTMLprojectImage.replace("%data%", projects.project[stuff].images);
+			$(".project-entry:last").append(formattedImages)
+		}
+	};
+};
+projects.display();
+$("#mapDiv").append(googleMap);
