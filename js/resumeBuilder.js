@@ -66,8 +66,8 @@ var education = {
 					location : "New Brunswick, NJ",
 					degree : "BS",
 					date : "2015",
-					majors : "Economics",
-					url : "NA"
+					majors : ["Economics"],
+					url : "http://www.rutgers.edu/"
 				}
 			],
 	onlineCourses : {
@@ -81,7 +81,6 @@ var education = {
 bio.display = function() {
 	var formattedHTMLheaderName = HTMLheaderName.replace("%data%", bio.name);
 		$("#header").append(formattedHTMLheaderName);
-
 	var formattedHTMLheaderRole = HTMLheaderRole.replace("%data%", bio.role);
 		$("#header").append(formattedHTMLheaderRole);
 	var formattedHTMLmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
@@ -119,8 +118,9 @@ work.display = function() {
 		var formattedEmployerTitle = formattedEmployer + formattedTitle;
 		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		var formattedworkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 
-		$(".work-entry:last").append(formattedEmployerTitle).append(formattedDates).append(formattedDescription);
+		$(".work-entry:last").append(formattedEmployerTitle).append(formattedDates).append(formattedworkLocation).append(formattedDescription);
 	};
 };
 work.display();
@@ -162,7 +162,7 @@ education.display = function() {
 		var formattedHTMLschoolDates = HTMLschoolDates.replace("%data%", education.schools[school].date);
 		var formattedHTMLschoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var formattedHTMLschoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
-		$(".education-entry:last").append(formattedHTMLschoolName).append(formattedHTMLschoolDegree).append(formattedHTMLschoolDates).append(formattedHTMLschoolLocation).append(formattedHTMLschoolMajor);
+		$(".education-entry").append(formattedHTMLschoolName).append(formattedHTMLschoolDegree);
 	}
 
 	$("#education").append(HTMLonlineClasses);
