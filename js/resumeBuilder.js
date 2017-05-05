@@ -1,3 +1,14 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
+
 /*work contains an array of jobs. Each object in the jobs array should contain an employer, title, location, dates worked and description strings.
 
 projects contains an array of projects. Each object in the projects array should contain title, dates and description strings, and an images array with URL strings for project images.
@@ -74,9 +85,9 @@ var education = {
 					title : "Front End Web Dev Nanodegree",
 					school : "Udacity",
 					dates : "2017",
-					url : "www.udacity.com"
+					url : "https://www.udacity.com/"
 					}
-}
+};
 
 bio.display = function() {
 	
@@ -104,8 +115,9 @@ bio.display = function() {
 		for (var i = 0; i < bio.skills.length; i++) {
 			formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
 			$("#skills").append(formattedSkill);
-		};
-	};
+		}
+	}
+
 	$("#footerContacts").append(formattedHTMLmobile);
 	$("#footerContacts").append(formattedHTMLemail);
 	$("#footerContacts").append(formattedHTMLgithub);
@@ -115,7 +127,7 @@ bio.display();
 
 
 work.display = function() {
-	for (job in work.jobs) {
+	for (var job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -126,7 +138,7 @@ work.display = function() {
 		var formattedworkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 
 		$(".work-entry:last").append(formattedEmployerTitle).append(formattedDates).append(formattedworkLocation).append(formattedDescription);
-	};
+	}
 };
 work.display();
 
@@ -146,7 +158,7 @@ function inName() {
 }
 
 projects.display = function() {
-	for (stuff in projects.project) {
+	for (var stuff in projects.project) {
 		$("#projects").append(HTMLprojectStart);
 		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[stuff].title);
 		var formattedDates = HTMLprojectDates.replace("%data%", projects.project[stuff].dates);
@@ -154,15 +166,15 @@ projects.display = function() {
 		$(".project-entry:last").append(formattedTitle).append(formattedDates).append(formattedDescription);
 		if (projects.project[stuff].images.length > 0) {
 			var formattedImages = HTMLprojectImage.replace("%data%", projects.project[stuff].images);
-			$(".project-entry:last").append(formattedImages)
+			$(".project-entry:last").append(formattedImages);
 		}
-	};
+	}
 };
 
 education.display = function() {
-	for (school in education.schools) {
+	for (var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
-		var formattedHTMLschoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		var formattedHTMLschoolName = HTMLschoolName.replace("%data%", education.schools[school].name).replace("#", education.schools[school].url);
 		var formattedHTMLschoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		var formattedHTMLschoolDates = HTMLschoolDates.replace("%data%", education.schools[school].date);
 		var formattedHTMLschoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
@@ -171,10 +183,10 @@ education.display = function() {
 	}
 
 	$("#education").append(HTMLonlineClasses);
-	var formattedHTMLonlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses.title);
+	var formattedHTMLonlineTitle = HTMLonlineTitle.replace("#", education.onlineCourses.url).replace("%data%", education.onlineCourses.title);
 	var formattedHTMLonlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses.school);
 	var formattedHTMLonlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses.dates);
-	var formattedHTMLonlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses.url);
+	var formattedHTMLonlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses.url).replace("#", education.onlineCourses.url);
 	$("#education").append(HTMLschoolStart);
 	$(".education-entry:last").append(formattedHTMLonlineTitle + formattedHTMLonlineSchool);
 	$(".education-entry:last").append(formattedHTMLonlineDates);
