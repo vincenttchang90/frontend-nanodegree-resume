@@ -1,25 +1,3 @@
-// Hello.
-//
-// This is JSHint, a tool that helps to detect errors and potential
-// problems in your JavaScript code.
-//
-// To start, simply enter some JavaScript anywhere on this page. Your
-// report will appear on the right side.
-//
-// Additionally, you can toggle specific options in the Configure
-// menu.
-
-/*work contains an array of jobs. Each object in the jobs array should contain an employer, title, location, dates worked and description strings.
-
-projects contains an array of projects. Each object in the projects array should contain title, dates and description strings, and an images array with URL strings for project images.
-
-bio contains name, role, welcomeMessage, and biopic strings, contacts object and skills array of skill strings. The contacts object should contain a mobile number, email address, github username, twitter handle
-and location. The twitter property is optional.
-
-education contains an array of schools. Each object in the schools array contains name, location, degree dates and url strings, and amajors array of major strings.
-education also contains an onlineCourses array. Each object in the onlineCourses array should contain a title, school, dates and url strings.
-*/
-
 var work = {
 	jobs : [
 		{
